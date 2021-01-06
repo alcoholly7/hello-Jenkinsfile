@@ -3,8 +3,12 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent any
+            environment {
+                LOG_LEVEL='INFO'
+            }
             steps {
-                echo 'Building..'
+                echo "Building with log level ${LOG_LEVEL}..."
             }
         }
         stage('Test') {
